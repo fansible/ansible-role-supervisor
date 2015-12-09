@@ -12,7 +12,7 @@ None.
     programs_to_supervise: []
     # Name and command are the only mandatory variable,
     # check the template for a better understanding
-    # commands_to_supervise:
+    # programs_to_supervise:
     # - { name: top, command: "/usr/bin/top -b" }
     # - { name: top, state: stopped, command: "/usr/bin/top -b", directory: "/var/www/", autostart: true, autorestart:false, startretries:5, user: "vagrant",  }
 ```
