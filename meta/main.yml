@@ -1,0 +1,13 @@
+---
+galaxy_info:
+  author: Maxime Thoonsen
+  description: Install supervisor and add conf to supervise program
+  license: MIT
+  min_ansible_version: 1.9
+  platforms:
+    - name: Ubuntu
+      versions:
+        - trusty
+  categories:
+    - tools
+dependencies: []
