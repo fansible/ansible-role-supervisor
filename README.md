@@ -14,7 +14,7 @@ None.
     # check the template for a better understanding
     # programs_to_supervise:
     # - { name: top, command: "/usr/bin/top -b" }
-    # - { name: top, state: stopped, command: "/usr/bin/top -b", directory: "/var/www/", autostart: true, autorestart:false, startretries:5, user: "vagrant",  }
+    # - { name: top, state: "stopped", command: "/usr/bin/top -b", directory: "/var/www/", autostart: true, autorestart: false, startretries: 5, user: "vagrant",  }
 ```
 
 Example Playbook

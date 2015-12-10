@@ -7,8 +7,17 @@
   template: src=etc/supervisor/conf.d/myconf.conf dest=/etc/supervisor/conf.d/{{ item.name }}.conf
   with_items: programs_to_supervise
   when: programs_to_supervise|length > 0
+  notify: right-states-programs #We need to restart the program to use the new template
 
-- name: Put all the programs in the right state
+  # From the doc: "state = present, the module will call 'supervisorctl reread'
+  # then 'supervisorctl add' if the program/group does not exist."
+  # See: http://docs.ansible.com/ansible/supervisorctl_module.html
+- name: Add all the programs in supervisor if there are not present
+  supervisorctl: name={{ item.name }} state=present
+  with_items: programs_to_supervise
+  when: programs_to_supervise|length > 0
+
+- name: Put all programs in the right state
   supervisorctl: name={{ item.name }} state={{ item.state|default('started') }}
   with_items: programs_to_supervise
   when: programs_to_supervise|length > 0
